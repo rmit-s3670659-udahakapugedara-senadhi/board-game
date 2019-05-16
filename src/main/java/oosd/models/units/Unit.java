@@ -14,7 +14,7 @@ import java.util.List;
  * Design pattern: template behavioural pattern is used to produce multiple types of units.
  */
 @ContractReference(UnitContract.class)
-public abstract class Unit {
+public abstract class Unit implements Cloneable {
     private Player player;
     private boolean captured;
     private int defendCount = 0;

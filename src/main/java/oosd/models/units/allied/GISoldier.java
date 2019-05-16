@@ -10,7 +10,7 @@ import oosd.models.units.soviet.RhinoTank;
 import java.util.Arrays;
 import java.util.List;
 
-public class GISoldier extends Allied {
+public class GISoldier extends Allied implements Cloneable {
     public GISoldier(Player player) {
         super(player);
     }
@@ -30,4 +30,17 @@ public class GISoldier extends Allied {
     public UnitBehaviour getUnitBehaviour() {
         return new LinearUnitBehaviour(2);
     }
+    
+    public GISoldier clone() {
+    	GISoldier clone = null;
+        try {
+			clone = (GISoldier) super.clone();
+		} catch (CloneNotSupportedException e) {
+			
+			e.printStackTrace();
+		}
+        
+        return clone;
+      }
+    
 }

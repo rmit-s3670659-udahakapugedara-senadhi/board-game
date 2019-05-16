@@ -31,4 +31,16 @@ public class GrizzlyTank extends Allied {
     public UnitBehaviour getUnitBehaviour() {
         return new LinearUnitBehaviour(2);
     }
+    
+    public GrizzlyTank clone() {
+    	GrizzlyTank clone = null;
+        try {
+			clone = (GrizzlyTank) super.clone();
+		} catch (CloneNotSupportedException e) {
+			
+			e.printStackTrace();
+		}
+        
+        return clone;
+      }
 }
