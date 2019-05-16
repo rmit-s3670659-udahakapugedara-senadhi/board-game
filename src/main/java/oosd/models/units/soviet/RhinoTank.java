@@ -2,6 +2,7 @@ package oosd.models.units.soviet;
 
 import oosd.models.player.Player;
 import oosd.models.units.Unit;
+import oosd.models.units.allied.GISoldier;
 import oosd.models.units.behaviour.LinearUnitBehaviour;
 import oosd.models.units.behaviour.UnitBehaviour;
 
@@ -32,4 +33,17 @@ public class RhinoTank extends Soviet {
     public int getDefaultDefendCount() {
         return 3;
     }
+    
+    public RhinoTank clone() {
+    	RhinoTank clone = null;
+        try {
+			clone = (RhinoTank) super.clone();
+		} catch (CloneNotSupportedException e) {
+			
+			e.printStackTrace();
+		}
+        
+        return clone;
+      }
+    
 }

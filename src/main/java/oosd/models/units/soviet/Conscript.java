@@ -3,6 +3,7 @@ package oosd.models.units.soviet;
 import oosd.models.player.Player;
 import oosd.models.units.Unit;
 import oosd.models.units.allied.GISoldier;
+import oosd.models.units.allied.Harrier;
 import oosd.models.units.behaviour.LinearUnitBehaviour;
 import oosd.models.units.behaviour.UnitBehaviour;
 
@@ -29,4 +30,16 @@ public class Conscript extends Soviet {
     public UnitBehaviour getUnitBehaviour() {
         return new LinearUnitBehaviour(1);
     }
+    
+    public Conscript clone() {
+    	Conscript clone = null;
+        try {
+			clone = (Conscript) super.clone();
+		} catch (CloneNotSupportedException e) {
+			
+			e.printStackTrace();
+		}
+        
+        return clone;
+      }
 }

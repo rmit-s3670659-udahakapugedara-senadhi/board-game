@@ -31,4 +31,16 @@ public class Harrier extends Allied {
     public UnitBehaviour getUnitBehaviour() {
         return new LinearUnitBehaviour(6);
     }
+    
+    public Harrier clone() {
+    	Harrier clone = null;
+        try {
+			clone = (Harrier) super.clone();
+		} catch (CloneNotSupportedException e) {
+			
+			e.printStackTrace();
+		}
+        
+        return clone;
+      }
 }

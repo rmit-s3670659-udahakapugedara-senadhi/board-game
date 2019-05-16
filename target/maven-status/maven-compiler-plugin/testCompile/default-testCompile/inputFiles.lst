@@ -1,8 +1,8 @@
-/Users/mac/eclipse-workspace/board-game/src/test/java/oosd/models/UnitTest.java
-/Users/mac/eclipse-workspace/board-game/src/test/java/oosd/models/GameBoardTest.java
-/Users/mac/eclipse-workspace/board-game/src/test/java/oosd/models/mocks/MockUnitEmptyName.java
-/Users/mac/eclipse-workspace/board-game/src/test/java/oosd/models/PlayerTest.java
-/Users/mac/eclipse-workspace/board-game/src/test/java/oosd/models/GameEngineTest.java
-/Users/mac/eclipse-workspace/board-game/src/test/java/oosd/models/mocks/MockUnitNotWinnables.java
-/Users/mac/eclipse-workspace/board-game/src/test/java/oosd/models/TeamTest.java
-/Users/mac/eclipse-workspace/board-game/src/test/java/oosd/models/PieceTest.java
+/Users/mac/eclipse-workspace/board-game-clone/board-game/src/test/java/oosd/models/GameEngineTest.java
+/Users/mac/eclipse-workspace/board-game-clone/board-game/src/test/java/oosd/models/GameBoardTest.java
+/Users/mac/eclipse-workspace/board-game-clone/board-game/src/test/java/oosd/models/PlayerTest.java
+/Users/mac/eclipse-workspace/board-game-clone/board-game/src/test/java/oosd/models/TeamTest.java
+/Users/mac/eclipse-workspace/board-game-clone/board-game/src/test/java/oosd/models/UnitTest.java
+/Users/mac/eclipse-workspace/board-game-clone/board-game/src/test/java/oosd/models/mocks/MockUnitNotWinnables.java
+/Users/mac/eclipse-workspace/board-game-clone/board-game/src/test/java/oosd/models/PieceTest.java
+/Users/mac/eclipse-workspace/board-game-clone/board-game/src/test/java/oosd/models/mocks/MockUnitEmptyName.java

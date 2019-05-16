@@ -34,4 +34,16 @@ public class KirovAirship extends Soviet {
     public int getDefaultDefendCount() {
         return 1;
     }
+    
+    public KirovAirship clone() {
+    	KirovAirship clone = null;
+        try {
+			clone = (KirovAirship) super.clone();
+		} catch (CloneNotSupportedException e) {
+			
+			e.printStackTrace();
+		}
+        
+        return clone;
+      }
 }

@@ -1,0 +1,8 @@
+oosd/models/UnitTest.class
+oosd/models/GameBoardTest.class
+oosd/models/PlayerTest.class
+oosd/models/mocks/MockUnitEmptyName.class
+oosd/models/GameEngineTest.class
+oosd/models/PieceTest.class
+oosd/models/mocks/MockUnitNotWinnables.class
+oosd/models/TeamTest.class
