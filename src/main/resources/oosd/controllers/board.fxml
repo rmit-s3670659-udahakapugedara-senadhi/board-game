@@ -16,6 +16,10 @@
         <SidebarPane fx:id="sidebar" minWidth="255">
             <Text fx:id="playerTurn" fill="#FAFB32" style="-fx-font-weight: bold" textAlignment="CENTER" layoutX="50"
                   layoutY="20"/>
+          <children>
+            <Button text="Undo" onAction="#handleUndo1ButtonAction" fx:id="undoButton1" layoutX="6"
+                  layoutY="320"/>
+          </children>
         </SidebarPane>
     </right>
     <bottom>

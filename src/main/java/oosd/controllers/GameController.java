@@ -41,6 +41,10 @@ public class GameController extends Controller {
     @FXML protected void handleSubmitButtonAction(ActionEvent event) {
         System.out.println("poop");
     }
+    
+    @FXML protected void handleUndo1ButtonAction(ActionEvent event) {
+        System.out.println("poop");
+    }
 
     @Override
     public void initialize() {
