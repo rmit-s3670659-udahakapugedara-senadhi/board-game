@@ -1,8 +1,12 @@
 package oosd.controllers;
 
+import java.util.ArrayList;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
+import oosd.helpers.Movement;
+import oosd.helpers.UndoContainer;
 import oosd.models.GameEngine;
 import oosd.models.board.Piece;
 import oosd.views.BoardView;
@@ -18,7 +22,7 @@ import oosd.views.components.WindowGridPane;
  * Cleanly separates the user interface (view) from the business objects (model)
  */
 public class GameController extends Controller {
-    private final GameEngine gameEngine;
+    private final GameEngine gameEngine;      
 
     @FXML
     private WindowGridPane windowGridPane;
@@ -33,6 +37,7 @@ public class GameController extends Controller {
     private ToolbarPane toolbar;
 
     private BoardView boardView;
+    
 
     public GameController(GameEngine gameEngine) {
         this.gameEngine = gameEngine;
@@ -43,7 +48,16 @@ public class GameController extends Controller {
     }
     
     @FXML protected void handleUndo1ButtonAction(ActionEvent event) {
-        System.out.println("poop");
+        
+    	System.out.println("poop");
+        UndoContainer undoContainer = gameEngine.undoLastMove();
+                                             
+        gameEngine.setSelectedPiece(null);        
+        gameEngine.updateDefendPieces();
+        
+        boardView.moveUnit(undoContainer.p2removePiece, undoContainer.p2movedpiece);
+        boardView.moveUnit(undoContainer.p1removePiece, undoContainer.p1movedpiece);
+      
     }
 
     @Override
@@ -74,9 +88,10 @@ public class GameController extends Controller {
     public void moveUnit(MouseEvent event, Piece selectedPiece, Piece piece) {
         piece.setUnit(selectedPiece.getUnit());
         selectedPiece.setUnit(null);
-        gameEngine.setSelectedPiece(null);
+        gameEngine.setSelectedPiece(null);        
         gameEngine.getNextTurn();
         gameEngine.updateDefendPieces();
+        gameEngine.storeMove(piece.getUnit().getPlayer(),piece.getUnit(), piece);
         boardView.moveUnit(selectedPiece, piece);
     }
 

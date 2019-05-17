@@ -1,10 +1,14 @@
 package oosd.models;
 
+import oosd.helpers.HistoryManager;
+import oosd.helpers.Movement;
+import oosd.helpers.UndoContainer;
 import oosd.models.board.Board;
 import oosd.models.board.Piece;
 import oosd.models.player.Player;
 import oosd.models.units.Unit;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -17,10 +21,12 @@ public class GameEngine {
     private Player turn;
     private List<Player> players;
     private Iterator<Player> playersIterator;
+    private HistoryManager historyManager;
 
     public GameEngine(Board board, List<Player> players) {
         this.board = board;
         this.players = players;
+        this.historyManager = new HistoryManager();
 
         // Whoever we add to the players list, the first one takes the turn
         if (isNotEmpty(players)) {
@@ -98,4 +104,27 @@ public class GameEngine {
             }
         });
     }
+    
+    /**
+     * Fetch data from 
+     * Set both players to previous positions
+     * @return 
+     *
+     * 
+     */
+    public UndoContainer undoLastMove() {        
+        return this.historyManager.undoLast();
+        
+    }
+    
+    public void storeMove(Player player, Unit unit,Piece piece) {
+        this.historyManager.store(player,unit, piece);
+    }
+    
+    
+    
+    
+    
+    
+    
 }

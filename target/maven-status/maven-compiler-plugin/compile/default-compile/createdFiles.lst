@@ -4,8 +4,10 @@ oosd/models/board/BoardActionable.class
 oosd/models/units/behaviour/UnitBehaviour.class
 oosd/models/board/Piece.class
 oosd/controllers/Controller.class
+oosd/helpers/UndoContainer.class
 oosd/views/BoardView.class
 oosd/views/View.class
+oosd/helpers/HistoryManager.class
 oosd/views/components/ToolbarPane.class
 oosd/models/units/soviet/Soviet.class
 oosd/models/units/soviet/Conscript.class
@@ -44,6 +46,7 @@ oosd/views/components/DefendPieceImage.class
 oosd/views/components/WindowGridPane.class
 oosd/models/units/behaviour/enums/LinearDirections$5.class
 oosd/models/units/behaviour/enums/LinearDirections$2.class
+oosd/helpers/Movement.class
 oosd/models/player/Team.class
 oosd/models/units/behaviour/enums/LinearDirections$6.class
 oosd/models/board/GameBoard.class
