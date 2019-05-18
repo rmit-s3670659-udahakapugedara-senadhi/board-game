@@ -33,7 +33,7 @@ public class HistoryManager {
 		   this.history.removeLast();
 		   
 		   Movement position2 = this.history.getLast();
-		   Movement position1 = this.history.get(this.history.size()-1);
+		   Movement position1 = this.history.get(this.history.size()-2);
 		   
 		   Piece piece2 = position2.piece;
 		   piece2.setUnit(position2.unit);

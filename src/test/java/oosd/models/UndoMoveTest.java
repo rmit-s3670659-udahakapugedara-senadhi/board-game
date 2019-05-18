@@ -1,5 +1,8 @@
 package oosd.models;
 
+import oosd.helpers.HistoryManager;
+import oosd.helpers.UndoContainer;
+import oosd.helpers.UnitCreator;
 import oosd.models.board.Board;
 import oosd.models.board.GameBoard;
 import oosd.models.board.Piece;
@@ -15,7 +18,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class GameEngineTest {
+class UndoMoveTest {
     @Test
     void testCheckBoardExistsOnGameEngine() {
         // Act
@@ -157,7 +160,72 @@ class GameEngineTest {
         assertEquals(2, actualPlayers.size());
     }
     
+    
+    @Test
+    void testUndoFeature() {
+    	Player playerOne = new Player("Johnny Dave", new Team("Red"));
+        Player playerTwo = new Player("Jane Doe", new Team("Blue"));
+        List<Player> players = new ArrayList<>(Arrays.asList(playerOne, playerTwo));
+        
+        UnitCreator unitCreator = new UnitCreator(playerOne,playerTwo);
+        
+        
+        Board board = new GameBoard(10, 10);        
+        
+        board.getPiece(0, 0).setUnit(unitCreator.makeGISoldier());
+        board.getPiece(1, 0).setUnit(unitCreator.makeGISoldier());
+        board.getPiece(2, 0).setUnit(unitCreator.makeGrizzlyTank());
+        board.getPiece(3, 0).setUnit(unitCreator.makeGrizzlyTank());
+        board.getPiece(4, 0).setUnit(unitCreator.makeHarrier());
+        board.getPiece(5, 0).setUnit(unitCreator.makeHarrier());
+        board.getPiece(6, 0).setUnit(unitCreator.makeGrizzlyTank());
+        board.getPiece(7, 0).setUnit(unitCreator.makeGrizzlyTank());
+        board.getPiece(8, 0).setUnit(unitCreator.makeGISoldier());
+        board.getPiece(9, 0).setUnit(unitCreator.makeGISoldier());
+        board.getPiece(0, 9).setUnit(unitCreator.makeRhinoTank());
+        board.getPiece(1, 9).setUnit(unitCreator.makeRhinoTank());
+        board.getPiece(2, 9).setUnit(unitCreator.makeKirovAirshipk());
+        board.getPiece(3, 9).setUnit(unitCreator.makeKirovAirshipk());
+        board.getPiece(4, 9).setUnit(unitCreator.makeConscript());
+        board.getPiece(5, 9).setUnit(unitCreator.makeConscript());
+        board.getPiece(6, 9).setUnit(unitCreator.makeKirovAirshipk());
+        board.getPiece(7, 9).setUnit(unitCreator.makeKirovAirshipk());
+        board.getPiece(8, 9).setUnit(unitCreator.makeRhinoTank());
+        board.getPiece(9, 9).setUnit(unitCreator.makeRhinoTank());	
+    	
+        GameEngine gameEngine = new GameEngine(board, players);
+        
+        //Round 1 
+        gameEngine.storeMove(playerOne, board.getPiece(0,0).getUnit(), board.getPiece(0,1));
+        gameEngine.storeMove(playerTwo, board.getPiece(0,9).getUnit(), board.getPiece(0,8));
+        
+        //Round 2 - Undo 3 must land here
+        gameEngine.storeMove(playerOne, board.getPiece(0,0).getUnit(), board.getPiece(0,2));
+        gameEngine.storeMove(playerTwo, board.getPiece(0,9).getUnit(), board.getPiece(0,7));
+        
+        //Round 3 - Undo2 must land here
+        gameEngine.storeMove(playerOne, board.getPiece(0,0).getUnit(), board.getPiece(0,3));
+        gameEngine.storeMove(playerTwo, board.getPiece(0,9).getUnit(), board.getPiece(0,6));
+        
+        //Round 4 - Undo 1 must land here
+        gameEngine.storeMove(playerOne, board.getPiece(0,0).getUnit(), board.getPiece(0,4));
+        gameEngine.storeMove(playerTwo, board.getPiece(0,9).getUnit(), board.getPiece(0,5));
+        
+        //Round 5
+        gameEngine.storeMove(playerOne, board.getPiece(0,0).getUnit(), board.getPiece(1,4));
+        gameEngine.storeMove(playerTwo, board.getPiece(0,9).getUnit(), board.getPiece(1,5));
+        
 
+        UndoContainer undoContainer = gameEngine.undoLastMove();
+        
+        
+        
+        
+        
+        
+    }
+    
+    
     
     
     
