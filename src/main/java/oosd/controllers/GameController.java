@@ -49,7 +49,7 @@ public class GameController extends Controller {
     
     @FXML protected void handleUndo1ButtonAction(ActionEvent event) {
         
-    	System.out.println("poop");
+    	if(gameEngine.getTurn().getUndoStatus()) {
         UndoContainer undoContainer = gameEngine.undoLastMove();
                                              
         gameEngine.setSelectedPiece(null);        
@@ -57,6 +57,60 @@ public class GameController extends Controller {
         
         boardView.moveUnit(undoContainer.p2removePiece, undoContainer.p2movedpiece);
         boardView.moveUnit(undoContainer.p1removePiece, undoContainer.p1movedpiece);
+        
+        gameEngine.getTurn().usedUndoMove();
+    	}else {
+        	System.out.println(" Player has Depleted Undo Moves");
+        }
+      
+    }
+    
+    @FXML protected void handleUndo2ButtonAction(ActionEvent event) {
+        if(gameEngine.getTurn().getUndoStatus()) {
+    	
+        UndoContainer undoContainer = gameEngine.undoLastMove();
+        
+        Piece p2removePiece = undoContainer.p2removePiece;
+        Piece p1removePiece = undoContainer.p1removePiece;
+        
+        undoContainer = gameEngine.undoLastMove();
+                                             
+        gameEngine.setSelectedPiece(null);        
+        gameEngine.updateDefendPieces();
+        
+        boardView.moveUnit(p2removePiece, undoContainer.p2movedpiece);
+        boardView.moveUnit(p1removePiece, undoContainer.p1movedpiece);
+        
+        gameEngine.getTurn().usedUndoMove();
+        }else {
+        	System.out.println(" Player has Depleted Undo Moves");
+        }
+      
+    }
+    
+    @FXML protected void handleUndo3ButtonAction(ActionEvent event) {
+        
+    	if(gameEngine.getTurn().getUndoStatus()) {
+        UndoContainer undoContainer = gameEngine.undoLastMove();
+        
+        Piece p2removePiece = undoContainer.p2removePiece;
+        Piece p1removePiece = undoContainer.p1removePiece;
+        
+        undoContainer = gameEngine.undoLastMove();
+        undoContainer = gameEngine.undoLastMove();
+                                             
+        gameEngine.setSelectedPiece(null);        
+        gameEngine.updateDefendPieces();
+        
+        boardView.moveUnit(p2removePiece, undoContainer.p2movedpiece);
+        boardView.moveUnit(p1removePiece, undoContainer.p1movedpiece);
+        
+        gameEngine.getTurn().usedUndoMove();
+        
+    	}else {
+        	System.out.println("Player has Depleted Undo Moves");
+        }
+        
       
     }
 

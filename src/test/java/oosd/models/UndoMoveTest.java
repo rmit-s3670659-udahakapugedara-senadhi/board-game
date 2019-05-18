@@ -61,25 +61,7 @@ class UndoMoveTest {
         assertEquals(expectedPiece, selectedPiece);
     }
 
-    @Test
-    void testIsInvalidMoveWhenUnitExists() {
-        // Arrange
-        Player player = new Player("John Tester", new Team("Red"));
-        Unit unit = new GISoldier(player);
-        Board board = new GameBoard(2, 2);
-        GameEngine gameEngine = new GameEngine(board, new ArrayList<>());
-        Piece unitPiece = gameEngine.getBoard().getPiece(0, 0);
-        Piece selectedPiece = gameEngine.getBoard().getPiece(0, 1);
-        unitPiece.setUnit(unit);
-        selectedPiece.setUnit(unit);
-        gameEngine.setSelectedPiece(selectedPiece);
 
-        // Act
-        boolean isValidMove = unitPiece.getUnit().getUnitBehaviour().isValidMove(gameEngine, unitPiece);
-
-        // Assert
-        assertFalse(isValidMove);
-    }
 
     @Test
     void testGetValidMoves() {
@@ -200,23 +182,34 @@ class UndoMoveTest {
         gameEngine.storeMove(playerTwo, board.getPiece(0,9).getUnit(), board.getPiece(0,8));
         
         //Round 2 - Undo 3 must land here
-        gameEngine.storeMove(playerOne, board.getPiece(0,0).getUnit(), board.getPiece(0,2));
-        gameEngine.storeMove(playerTwo, board.getPiece(0,9).getUnit(), board.getPiece(0,7));
+        gameEngine.storeMove(playerOne, board.getPiece(0,1).getUnit(), board.getPiece(0,2));
+        gameEngine.storeMove(playerTwo, board.getPiece(0,8).getUnit(), board.getPiece(0,7));
         
         //Round 3 - Undo2 must land here
-        gameEngine.storeMove(playerOne, board.getPiece(0,0).getUnit(), board.getPiece(0,3));
-        gameEngine.storeMove(playerTwo, board.getPiece(0,9).getUnit(), board.getPiece(0,6));
+        gameEngine.storeMove(playerOne, board.getPiece(0,2).getUnit(), board.getPiece(0,3));
+        gameEngine.storeMove(playerTwo, board.getPiece(0,7).getUnit(), board.getPiece(0,6));
         
         //Round 4 - Undo 1 must land here
-        gameEngine.storeMove(playerOne, board.getPiece(0,0).getUnit(), board.getPiece(0,4));
-        gameEngine.storeMove(playerTwo, board.getPiece(0,9).getUnit(), board.getPiece(0,5));
+        gameEngine.storeMove(playerOne, board.getPiece(0,3).getUnit(), board.getPiece(0,4));
+        gameEngine.storeMove(playerTwo, board.getPiece(0,6).getUnit(), board.getPiece(0,5));
         
         //Round 5
-        gameEngine.storeMove(playerOne, board.getPiece(0,0).getUnit(), board.getPiece(1,4));
-        gameEngine.storeMove(playerTwo, board.getPiece(0,9).getUnit(), board.getPiece(1,5));
+        gameEngine.storeMove(playerOne, board.getPiece(0,4).getUnit(), board.getPiece(1,4));
+        gameEngine.storeMove(playerTwo, board.getPiece(0,5).getUnit(), board.getPiece(1,5));
         
 
         UndoContainer undoContainer = gameEngine.undoLastMove();
+        
+        //Checking Undo1
+        undoContainer = gameEngine.undoLastMove();
+        
+        assertEquals(undoContainer.p1movedpiece, board.getPiece(0,4));
+        assertEquals(undoContainer.p2movedpiece, board.getPiece(0,5));
+        
+        assertEquals(undoContainer.p1removePiece, board.getPiece(1,4));
+        assertEquals(undoContainer.p2removePiece, board.getPiece(1,5));
+        
+        
         
         
         

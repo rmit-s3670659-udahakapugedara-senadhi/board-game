@@ -46,6 +46,37 @@ public class HistoryManager {
 		   return  undoContainer;
 	   
 	   }
+	   
+	   
+	   public UndoContainer undoLastTwo()
+	   {		   		   		     
+		   
+		   Piece removedPiece2 =this.history.getLast().piece;
+		   removedPiece2.setUnit(null);
+		   this.history.removeLast();
+		   Piece removedPiece1 =this.history.getLast().piece;
+		   removedPiece1.setUnit(null);
+		   this.history.removeLast();
+		   
+		   Movement position2 = this.history.getLast();
+		   Movement position1 = this.history.get(this.history.size()-2);
+		   
+		   Piece piece2 = position2.piece;
+		   piece2.setUnit(position2.unit);
+		   
+		   Piece piece1 = position1.piece;
+		   piece1.setUnit(position1.unit);
+		   
+		   UndoContainer undoContainer = new UndoContainer(removedPiece2, removedPiece1,piece2, piece1);
+		   		    
+		   return  undoContainer;
+	   
+	   }
+	   
+	   
+	   
+	   
+	   
 	}
 
 

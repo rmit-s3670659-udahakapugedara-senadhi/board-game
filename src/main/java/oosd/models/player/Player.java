@@ -12,11 +12,13 @@ public class Player {
     private String playerName;
     private Team team;
     private List<Unit> units;
+    private boolean undoStatus;
 
     public Player(String playerName, Team team) {
         this.playerName = playerName;
         this.team = team;
         this.units = new ArrayList<>();
+        this.undoStatus = true;
     }
 
     /**
@@ -56,6 +58,31 @@ public class Player {
     public void addUnit(Unit newUnit) {
         this.units.add(newUnit);
     }
+    
+    
+    /**
+     * Get Undo Status of the Player.
+     *
+     * 
+     */
+    public boolean getUndoStatus() {
+        return this.undoStatus;
+    }
+    
+    /**
+     * Depleted all Undo Moves for the Player.
+     *
+     * 
+     */
+    public void usedUndoMove() {
+        this.undoStatus = false;
+    }
+    
+    
+    
+    
+    
+    
 
     /**
      * Compare players by their team and name
