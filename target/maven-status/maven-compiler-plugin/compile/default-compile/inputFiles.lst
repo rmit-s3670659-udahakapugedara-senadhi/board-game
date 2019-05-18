@@ -1,4 +1,6 @@
 /Users/mac/eclipse-workspace/board-game-clone/board-game/src/main/java/oosd/models/player/Player.java
+/Users/mac/eclipse-workspace/board-game-clone/board-game/src/main/java/oosd/helpers/Movement.java
+/Users/mac/eclipse-workspace/board-game-clone/board-game/src/main/java/oosd/helpers/HistoryManager.java
 /Users/mac/eclipse-workspace/board-game-clone/board-game/src/main/java/oosd/models/units/soviet/KirovAirship.java
 /Users/mac/eclipse-workspace/board-game-clone/board-game/src/main/java/oosd/models/board/BoardActionable.java
 /Users/mac/eclipse-workspace/board-game-clone/board-game/src/main/java/oosd/models/units/soviet/RhinoTank.java
@@ -10,6 +12,7 @@
 /Users/mac/eclipse-workspace/board-game-clone/board-game/src/main/java/oosd/models/units/soviet/Conscript.java
 /Users/mac/eclipse-workspace/board-game-clone/board-game/src/main/java/oosd/models/board/GameBoard.java
 /Users/mac/eclipse-workspace/board-game-clone/board-game/src/main/java/oosd/models/units/Unit.java
+/Users/mac/eclipse-workspace/board-game-clone/board-game/src/main/java/oosd/helpers/UndoContainer.java
 /Users/mac/eclipse-workspace/board-game-clone/board-game/src/main/java/oosd/helpers/ObjectHelper.java
 /Users/mac/eclipse-workspace/board-game-clone/board-game/src/main/java/oosd/models/units/behaviour/LinearUnitBehaviour.java
 /Users/mac/eclipse-workspace/board-game-clone/board-game/src/main/java/oosd/models/units/allied/Harrier.java

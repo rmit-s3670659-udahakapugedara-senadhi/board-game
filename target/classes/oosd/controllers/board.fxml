@@ -16,6 +16,12 @@
         <SidebarPane fx:id="sidebar" minWidth="255">
             <Text fx:id="playerTurn" fill="#FAFB32" style="-fx-font-weight: bold" textAlignment="CENTER" layoutX="50"
                   layoutY="20"/>
+          <children>
+            <Button text="Undo Last" onAction="#handleUndo1ButtonAction" fx:id="undoButton1" layoutX="6" layoutY="320"/>
+            <Button text="Undo Last Two" onAction="#handleUndo2ButtonAction" fx:id="undoButton2" layoutX="6" layoutY="480"/>
+            <Button text="Undo Last Three" onAction="#handleUndo3ButtonAction" fx:id="undoButton3" layoutX="6" layoutY="640"/>
+                  
+          </children>
         </SidebarPane>
     </right>
     <bottom>
