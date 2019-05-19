@@ -13,6 +13,7 @@ oosd/models/units/soviet/Soviet.class
 oosd/models/units/soviet/Conscript.class
 oosd/helpers/ObjectHelper.class
 oosd/models/units/allied/Allied.class
+oosd/controllers/MainController.class
 oosd/models/units/behaviour/enums/LinearDirections.class
 oosd/contracts/models/PlayerContract.class
 oosd/models/units/allied/GrizzlyTank.class
