@@ -47,6 +47,21 @@ public class GameController extends Controller {
         System.out.println("poop");
     }
     
+    @FXML protected void handleSmallBoardButtonAction(ActionEvent event) {
+        
+      
+    }
+    
+    @FXML protected void handleMediumBoardButtonAction(ActionEvent event) {
+        
+        
+    }
+    
+    @FXML protected void handleLargeBoardButtonAction(ActionEvent event) {
+        
+        
+    }
+    
     @FXML protected void handleUndo1ButtonAction(ActionEvent event) {
         
     	if(gameEngine.getTurn().getUndoStatus()) {

@@ -6,13 +6,18 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import oosd.controllers.GameController;
+import oosd.controllers.MainController;
+import oosd.helpers.BoardCreator;
+import oosd.helpers.LargeBoardCreator;
+import oosd.helpers.MediumBoardCreator;
+import oosd.helpers.SmallBoardCreator;
 import oosd.helpers.UnitCreator;
 import oosd.models.GameEngine;
 import oosd.models.board.Board;
 import oosd.models.board.GameBoard;
 import oosd.models.player.Player;
 import oosd.models.player.Team;
-
+import oosd.views.components.Hexagon;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -24,10 +29,8 @@ import java.util.List;
  * If a user were to change specific units on the board, they can change it here in the main class.
  */
 public class Main extends Application {
-    private final int boardColumns = 10;
-    private final int boardRows = 10;
-    private final String boardFileName = "board.fxml";
-    private final String windowTitle = "OOSD Game GameBoard";
+    
+    private final String windowTitle = "Red Alert Game GameBoard";
     private final int sceneWidth = 1200;
     private final int sceneHeight = 900;
 
@@ -49,7 +52,22 @@ public class Main extends Application {
      */
     @Override
     public void start(Stage primaryStage) throws Exception {
-        GameController gameController = new GameController(initializeGameEngine());
+    	
+    	MainController mainController = new MainController(primaryStage);
+    	
+    	FXMLLoader loader = new FXMLLoader(MainController.class.getResource("main.fxml"));
+    	loader.setController(mainController);
+    	
+        Pane pane = loader.load();
+        Scene content = new Scene(pane, sceneWidth, sceneHeight);
+        
+        primaryStage.setScene(content);
+        primaryStage.setTitle(windowTitle);
+        primaryStage.setResizable(false);
+        primaryStage.show();
+    	
+    	
+/*        GameController gameController = new GameController(initializeGameEngine());
 
         FXMLLoader loader = new FXMLLoader(GameController.class.getResource(boardFileName));
         loader.setController(gameController);
@@ -60,48 +78,33 @@ public class Main extends Application {
         primaryStage.setScene(content);
         primaryStage.setTitle(windowTitle);
         primaryStage.setResizable(false);
-        primaryStage.show();
+        primaryStage.show();*/
     }
 
     /**
      * Initialize game configuration data, which can be easily modified.
+     * 
+     * @param  int Board Type- Small =1 Medium = 2 Large 3
      *
      * @return the game engine
      */
-    private GameEngine initializeGameEngine() {
-        Board board = new GameBoard(boardColumns, boardRows);
-
-        Team redTeam = new Team("Red");
-        Team blueTeam = new Team("Blue");
-
-        Player playerOne = new Player("Johnny Dave", redTeam);
-        Player playerTwo = new Player("Jane Doe", blueTeam);
+    public static GameEngine initializeGameEngine(int boardtype) {
+    	
+    	
+    	BoardCreator boardCreator = new LargeBoardCreator();
+    	
+    	if (boardtype == 1) {
+    		boardCreator = new SmallBoardCreator();		
+    	}
+    	if (boardtype == 2) {
+    		boardCreator = new MediumBoardCreator();	
+    		
+    	}
+    	if (boardtype == 3) {
+    		boardCreator = new LargeBoardCreator();		
+    	}
+    	    	
+        return new GameEngine(boardCreator.getBoard(),boardCreator.getPlayers());
         
-        UnitCreator unitCreator = new UnitCreator(playerOne,playerTwo);
-
-        List<Player> players = new ArrayList<>(Arrays.asList(playerOne, playerTwo));
-
-        board.getPiece(0, 0).setUnit(unitCreator.makeGISoldier());
-        board.getPiece(1, 0).setUnit(unitCreator.makeGISoldier());
-        board.getPiece(2, 0).setUnit(unitCreator.makeGrizzlyTank());
-        board.getPiece(3, 0).setUnit(unitCreator.makeGrizzlyTank());
-        board.getPiece(4, 0).setUnit(unitCreator.makeHarrier());
-        board.getPiece(5, 0).setUnit(unitCreator.makeHarrier());
-        board.getPiece(6, 0).setUnit(unitCreator.makeGrizzlyTank());
-        board.getPiece(7, 0).setUnit(unitCreator.makeGrizzlyTank());
-        board.getPiece(8, 0).setUnit(unitCreator.makeGISoldier());
-        board.getPiece(9, 0).setUnit(unitCreator.makeGISoldier());
-        board.getPiece(0, 9).setUnit(unitCreator.makeRhinoTank());
-        board.getPiece(1, 9).setUnit(unitCreator.makeRhinoTank());
-        board.getPiece(2, 9).setUnit(unitCreator.makeKirovAirshipk());
-        board.getPiece(3, 9).setUnit(unitCreator.makeKirovAirshipk());
-        board.getPiece(4, 9).setUnit(unitCreator.makeConscript());
-        board.getPiece(5, 9).setUnit(unitCreator.makeConscript());
-        board.getPiece(6, 9).setUnit(unitCreator.makeKirovAirshipk());
-        board.getPiece(7, 9).setUnit(unitCreator.makeKirovAirshipk());
-        board.getPiece(8, 9).setUnit(unitCreator.makeRhinoTank());
-        board.getPiece(9, 9).setUnit(unitCreator.makeRhinoTank());
-
-        return new GameEngine(board, players);
     }
 }

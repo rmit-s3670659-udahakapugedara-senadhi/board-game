@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.text.Text?>
+<?import oosd.views.components.BoardPane?>
+<?import oosd.views.components.SidebarPane?>
+<?import oosd.views.components.ToolbarPane?>
+<?import oosd.views.components.WindowGridPane?>
+<WindowGridPane xmlns:fx="http://javafx.com/fxml/1" fx:id="windowGridPane">
+    <center>
+        <SidebarPane fx:id="sidebar" minWidth="255">
+          <children>
+            <Button text="Small Board" onAction="#handleSmallBoardButtonAction" fx:id="boardButton1" layoutX="500" layoutY="100"/>
+            <Button text="Medium Board" onAction="#handleMediumBoardButtonAction" fx:id="boardButton2" layoutX="500" layoutY="300"/>
+            <Button text="Large Board" onAction="#handleLargeBoardButtonAction" fx:id="boardButton3" layoutX="500" layoutY="500"/>               
+          </children>
+        </SidebarPane>
+   </center>
+</WindowGridPane>
