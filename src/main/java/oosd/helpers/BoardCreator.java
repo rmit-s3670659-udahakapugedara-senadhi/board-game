@@ -11,7 +11,7 @@ import oosd.models.player.Team;
 
 /**
  * 
- * Design pattern: Factory Pattern
+ * Design pattern: Factory Pattern Implementor
  * 
  *.
  */
@@ -29,12 +29,14 @@ public abstract class BoardCreator {
     private UnitCreator unitCreator;
 
     private List<Player> players;
+    
+    private BoardCreator boardCreator;
 	
-
+		
 	public BoardCreator(int boardColumns, int boardRows) {
 		
-	    board = new GameBoard(boardColumns, boardRows);
-
+		board = new GameBoard(boardColumns, boardRows);
+		
 	    redTeam = new Team("Red");
 	    blueTeam = new Team("Blue");
 
@@ -42,9 +44,9 @@ public abstract class BoardCreator {
 	    playerTwo = new Player("Player Two", blueTeam);
 	    
 	    unitCreator = new UnitCreator(playerOne,playerTwo);
-
+	    
 	    players = new ArrayList<>(Arrays.asList(playerOne, playerTwo));
-	
+
 	}
 	
 	public List<Player> getPlayers() {
@@ -57,10 +59,22 @@ public abstract class BoardCreator {
 		
 	}
 	
+	public void setBoard(int boardColumns, int boardRows ) {
+		this.board = new GameBoard(boardColumns,boardRows);	
+	}
+	
 	
 	public UnitCreator getunitCreator() {
 		return unitCreator;
 		
+	}
+
+	public BoardCreator getBoardCreator() {
+		return boardCreator;
+	}
+
+	public void setBoardCreator(BoardCreator boardCreator) {
+		this.boardCreator = boardCreator;
 	}
 	
 	

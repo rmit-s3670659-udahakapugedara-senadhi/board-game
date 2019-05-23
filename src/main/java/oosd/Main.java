@@ -65,21 +65,9 @@ public class Main extends Application {
         primaryStage.setTitle(windowTitle);
         primaryStage.setResizable(false);
         primaryStage.show();
-    	
-    	
-/*        GameController gameController = new GameController(initializeGameEngine());
-
-        FXMLLoader loader = new FXMLLoader(GameController.class.getResource(boardFileName));
-        loader.setController(gameController);
-
-        Pane pane = loader.load();
-        Scene content = new Scene(pane, sceneWidth, sceneHeight);
-
-        primaryStage.setScene(content);
-        primaryStage.setTitle(windowTitle);
-        primaryStage.setResizable(false);
-        primaryStage.show();*/
+    	   	
     }
+    
 
     /**
      * Initialize game configuration data, which can be easily modified.
@@ -89,7 +77,6 @@ public class Main extends Application {
      * @return the game engine
      */
     public static GameEngine initializeGameEngine(int boardtype) {
-    	
     	
     	BoardCreator boardCreator = new LargeBoardCreator();
     	
@@ -103,6 +90,7 @@ public class Main extends Application {
     	if (boardtype == 3) {
     		boardCreator = new LargeBoardCreator();		
     	}
+    	
     	    	
         return new GameEngine(boardCreator.getBoard(),boardCreator.getPlayers());
         

@@ -11,7 +11,8 @@ import oosd.models.units.Unit;
 public class HistoryManager {
 
 	// manage execution and undo of Commands
-	// this is the "invoker" in the Command pattern
+	// Command Pattern
+	//Momnto look at it ...... 
 
 	// using the removeLast method from HashMap interface	   
 	private LinkedList<Movement> history = new LinkedList<Movement>();
