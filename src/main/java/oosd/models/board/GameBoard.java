@@ -1,19 +1,25 @@
 package oosd.models.board;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import de.vksi.c4j.ContractReference;
 import oosd.contracts.models.GameBoardContract;
+import oosd.models.player.Player;
 
 @ContractReference(GameBoardContract.class)
 public class GameBoard implements Board {
     private Piece[][] pieces;
     private int rows;
     private int columns;
+    private List<Player> players;
 
     public GameBoard(int columns, int rows) {
         this.rows = rows;
         this.columns = columns;
         this.pieces = new Piece[columns][rows];
-        this.apply((column, row) -> this.pieces[column][row] = new Piece(column, row));
+        this.apply((column, row) -> this.pieces[column][row] = new Piece(column, row));      
     }
 
     @Override
@@ -44,4 +50,14 @@ public class GameBoard implements Board {
             }
         }
     }
+
+	public List<Player> getPlayers() {
+		return players;
+	}
+
+	public void setPlayers(List<Player> players) {
+		this.players = players;
+	}
+    
+    
 }

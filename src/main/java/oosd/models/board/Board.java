@@ -1,5 +1,9 @@
 package oosd.models.board;
 
+import java.util.List;
+
+import oosd.models.player.Player;
+
 public interface Board {
     /**
      * Get the piece given the object
@@ -38,4 +42,10 @@ public interface Board {
      * @param action applied in the loops
      */
     void apply(BoardActionable action);
+    
+    
+    public List<Player> getPlayers();
+    
+    
+    void setPlayers(List<Player> players);
 }

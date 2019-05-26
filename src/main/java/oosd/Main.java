@@ -78,21 +78,10 @@ public class Main extends Application {
      */
     public static GameEngine initializeGameEngine(int boardtype) {
     	
-    	BoardCreator boardCreator = new LargeBoardCreator();
     	
-    	if (boardtype == 1) {
-    		boardCreator = new SmallBoardCreator();		
-    	}
-    	if (boardtype == 2) {
-    		boardCreator = new MediumBoardCreator();	
-    		
-    	}
-    	if (boardtype == 3) {
-    		boardCreator = new LargeBoardCreator();		
-    	}
+    	Board board = BoardCreator.getBoard(boardtype);
     	
-    	    	
-        return new GameEngine(boardCreator.getBoard(),boardCreator.getPlayers());
+        return new GameEngine(board,board.getPlayers());
         
     }
 }

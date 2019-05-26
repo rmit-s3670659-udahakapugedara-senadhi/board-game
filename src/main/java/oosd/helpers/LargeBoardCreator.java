@@ -3,9 +3,11 @@ package oosd.helpers;
 import oosd.models.board.Board;
 
 public class LargeBoardCreator extends BoardCreator {
+	
+	
 
 	public LargeBoardCreator() {
-		super(10,10);
+		super(10,10);		
 		super.getBoard().getPiece(0, 0).setUnit(super.getunitCreator().makeGISoldier());
 		super.getBoard().getPiece(1, 0).setUnit(super.getunitCreator().makeGISoldier());
 		super.getBoard().getPiece(2, 0).setUnit(super.getunitCreator().makeGrizzlyTank());
