@@ -42,25 +42,12 @@ public class GameController extends Controller {
     public GameController(GameEngine gameEngine) {
         this.gameEngine = gameEngine;
     }
-
+    
     @FXML protected void handleSubmitButtonAction(ActionEvent event) {
         System.out.println("poop");
-    }
-    
-    @FXML protected void handleSmallBoardButtonAction(ActionEvent event) {
-        
-      
-    }
-    
-    @FXML protected void handleMediumBoardButtonAction(ActionEvent event) {
-        
         
     }
-    
-    @FXML protected void handleLargeBoardButtonAction(ActionEvent event) {
-        
-        
-    }
+
     
     @FXML protected void handleUndo1ButtonAction(ActionEvent event) {
         

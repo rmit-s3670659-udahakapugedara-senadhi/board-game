@@ -20,8 +20,7 @@ import oosd.models.units.soviet.*;
  */
 
 public class UnitCreator {
-	
-static ArrayList<Unit> Units = new ArrayList<Unit>();
+
 	
 	GISoldier gisoldier ;
 	GrizzlyTank grizzlytank;
@@ -43,18 +42,6 @@ static ArrayList<Unit> Units = new ArrayList<Unit>();
 		this.rhinoTank = new RhinoTank(soviet);
 	
 	}
-	
-	public UnitCreator(GISoldier gisoldier,GrizzlyTank grizzlytank,Harrier harrier,Conscript conscript,KirovAirship kirovAirship,RhinoTank rhinoTank) {
-		this.gisoldier = gisoldier;
-		this.grizzlytank= grizzlytank;
-		this.harrier = harrier;
-		
-		this.conscript = conscript;
-		this.kirovAirship = kirovAirship;
-		this.rhinoTank = rhinoTank;
-	
-	}
-	
 	
 	
 	//Creating Allied Units		

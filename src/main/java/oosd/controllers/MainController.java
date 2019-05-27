@@ -57,11 +57,12 @@ public class MainController extends Controller {
     public MainController(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
-
+    
     @FXML protected void handleSubmitButtonAction(ActionEvent event) {
         System.out.println("poop");
         
     }
+
     
     @FXML protected void handleSmallBoardButtonAction(ActionEvent event) throws IOException {
     	System.out.println("poop");

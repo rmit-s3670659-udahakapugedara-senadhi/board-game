@@ -1,10 +1,16 @@
 package oosd.helpers;
 
+import java.util.List;
+
 import oosd.models.board.Board;
+import oosd.models.player.Player;
+import oosd.models.player.Team;
 
 public class SmallBoardCreator extends BoardCreator {
+    	
 
 	public SmallBoardCreator() {
+		
 		super(6,6);
 		super.getBoard().getPiece(0, 0).setUnit(super.getunitCreator().makeGISoldier());
 		super.getBoard().getPiece(1, 0).setUnit(super.getunitCreator().makeGISoldier());

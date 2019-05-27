@@ -1,5 +1,4 @@
 package oosd.models;
-
 import oosd.helpers.HistoryManager;
 import oosd.helpers.Movement;
 import oosd.helpers.UndoContainer;
@@ -13,6 +12,11 @@ import java.util.Iterator;
 import java.util.List;
 
 import static oosd.helpers.ListHelper.isNotEmpty;
+
+/**
+ * 
+ * The Originator of Momento Command Design Pattern
+ */
 
 // TODO: Convert this to C4J
 public class GameEngine {
@@ -109,8 +113,6 @@ public class GameEngine {
      * Fetch data from 
      * Set both players to previous positions
      * @return 
-     *
-     * 
      */
     public UndoContainer undoLastMove() {        
         return this.historyManager.undoLast();
@@ -120,11 +122,5 @@ public class GameEngine {
     public void storeMove(Player player, Unit unit,Piece piece) {
         this.historyManager.store(player,unit, piece);
     }
-    
-    
-    
-    
-    
-    
-    
+     
 }

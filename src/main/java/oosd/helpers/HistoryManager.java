@@ -10,10 +10,11 @@ import oosd.models.units.Unit;
 
 public class HistoryManager {
 
-	// manage execution and undo of Commands
-	// this is the "invoker" in the Command pattern
-
-	// using the removeLast method from HashMap interface	   
+	/**
+	 * 
+	 * Command Design Pattern - Acts as the Care Taker of Momento Desgin Pattern
+	 */
+	   
 	private LinkedList<Movement> history = new LinkedList<Movement>();
 
 	   public void store(Player player,Unit unit,Piece piece)

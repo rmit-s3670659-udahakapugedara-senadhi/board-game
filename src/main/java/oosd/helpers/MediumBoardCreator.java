@@ -4,7 +4,7 @@ import oosd.models.board.Board;
 
 public class MediumBoardCreator extends BoardCreator {
 
-	public MediumBoardCreator() {
+	public MediumBoardCreator() {		
 		super(8,8);
 		super.getBoard().getPiece(0, 0).setUnit(super.getunitCreator().makeGISoldier());
 		super.getBoard().getPiece(1, 0).setUnit(super.getunitCreator().makeGISoldier());
