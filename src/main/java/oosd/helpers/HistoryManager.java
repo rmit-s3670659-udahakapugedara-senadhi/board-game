@@ -17,9 +17,8 @@ public class HistoryManager {
 	   
 	private LinkedList<Movement> history = new LinkedList<Movement>();
 
-	   public void store(Player player,Unit unit,Piece piece)
-	   {
-		  Movement movement = new Movement(player,unit,piece);
+	   public void store(Movement movement)
+	   {		  
 	      this.history.add(movement);
 	   }
 

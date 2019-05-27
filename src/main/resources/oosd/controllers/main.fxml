@@ -11,9 +11,9 @@
     <center>
         <SidebarPane fx:id="sidebar" minWidth="255">
           <children>
-            <Button text="Small Board" onAction="#handleSmallBoardButtonAction" fx:id="boardButton1" layoutX="500" layoutY="100"/>
-            <Button text="Medium Board" onAction="#handleMediumBoardButtonAction" fx:id="boardButton2" layoutX="500" layoutY="300"/>
-            <Button text="Large Board" onAction="#handleLargeBoardButtonAction" fx:id="boardButton3" layoutX="500" layoutY="500"/>               
+            <Button text="Small Board" onAction="#handleSmallBoardButtonAction" fx:id="boardButton1" layoutX="750" layoutY="250"/>
+            <Button text="Medium Board" onAction="#handleMediumBoardButtonAction" fx:id="boardButton2" layoutX="750" layoutY="375"/>
+            <Button text="Large Board" onAction="#handleLargeBoardButtonAction" fx:id="boardButton3" layoutX="750" layoutY="500"/>               
           </children>
         </SidebarPane>
    </center>

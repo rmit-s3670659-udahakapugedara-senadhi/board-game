@@ -51,11 +51,13 @@ public class GameBoard implements Board {
         }
     }
 
-	public List<Player> getPlayers() {
+    @Override
+    public List<Player> getPlayers() {
 		return players;
 	}
 
-	public void setPlayers(List<Player> players) {
+    @Override
+    public void setPlayers(List<Player> players) {
 		this.players = players;
 	}
     

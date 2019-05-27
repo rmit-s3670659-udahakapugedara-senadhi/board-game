@@ -119,8 +119,8 @@ public class GameEngine {
         
     }
     
-    public void storeMove(Player player, Unit unit,Piece piece) {
-        this.historyManager.store(player,unit, piece);
+    public void storeMove(Player player, Unit unit,Piece piece) {  	
+        this.historyManager.store(new Movement(player,unit,piece));
     }
      
 }
